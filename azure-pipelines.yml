@@ -56,11 +56,6 @@ stages:
     - download: current
       artifact: manifests
 
-    - task: AzureWebAppContainer@1
-      inputs:
-       appName: $(WebAppName)
-       azureSubscription: 'Kubernetes Cluster Connection'
-       imageName: $(RegistryName)/$(webRepository):$(build.buildId)
 
     - task: KubernetesManifest@1
       displayName: Create imagePullSecret
